@@ -1,0 +1,17 @@
+.filtersContainer {
+	padding: 16px;
+	margin-bottom: 32px;
+	border-radius: 16px;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.buttonsContainer {
+	display: flex;
+	gap: 16px;
+	margin-top: 8px;
+}

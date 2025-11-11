@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+    # 🐘 PostgreSQL Database
+    db:
+        image: postgres:16
+        container_name: finance_postgres
+        restart: always
+        environment:
+            POSTGRES_USER: finance_user
+            POSTGRES_PASSWORD: finance_pass
+            POSTGRES_DB: finance_db
+        ports:
+            - '5432:5432'
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        networks:
+            - finance_network
+
+    # ⚙️ Node.js Backend (Express API)
+    backend:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        container_name: finance_backend
+        restart: always
+        env_file:
+            - ./backend/.env
+        environment:
+            - DATABASE_URL=postgresql://finance_user:finance_pass@db:5432/finance_db
+            - PORT=4000
+        depends_on:
+            - db
+        ports:
+            - '4000:4000'
+        networks:
+            - finance_network
+
+    # 💻 React Frontend
+    frontend:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        container_name: finance_frontend
+        restart: always
+        env_file:
+            - ./frontend/.env
+        environment:
+            - VITE_API_URL=http://localhost:4000
+        depends_on:
+            - backend
+        ports:
+            - '3000:3000'
+        networks:
+            - finance_network
+
+volumes:
+    postgres_data:
+
+networks:
+    finance_network:

@@ -1,0 +1,23 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	padding: 24px;
+	background-color: var(--mui-palette-background-paper);
+	border-radius: 8px;
+	box-shadow: var(--mui-shadows-2);
+}
+
+.datePicker
+	:global(
+		.MuiInputBase-input[type='date']::-webkit-calendar-picker-indicator
+	) {
+	filter: none;
+}
+
+.datePickerDark
+	:global(
+		.MuiInputBase-input[type='date']::-webkit-calendar-picker-indicator
+	) {
+	filter: invert(1) brightness(0.9);
+}

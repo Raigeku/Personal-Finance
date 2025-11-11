@@ -1,0 +1,23 @@
+.container {
+	min-height: 100vh;
+	padding-top: 48px;
+	padding-bottom: 48px;
+}
+
+.container.light {
+	background: linear-gradient(180deg, #f4f8fb 0%, #ffffff 100%);
+}
+
+.container.dark {
+	background: linear-gradient(180deg, #0f172a 0%, #071029 100%);
+}
+
+.title {
+	margin-bottom: 16px;
+	font-weight: 600;
+}
+
+.content {
+	padding: 16px;
+	border-radius: 16px;
+}

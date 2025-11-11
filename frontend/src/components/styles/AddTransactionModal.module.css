@@ -1,0 +1,17 @@
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px;
+	background-color: var(--mui-palette-background-paper);
+	box-shadow: var(--mui-shadows-24);
+	padding: 32px;
+	border-radius: 16px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 16px;
+}
