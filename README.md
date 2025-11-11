@@ -30,7 +30,6 @@ This project was created to gain hands-on experience with:
 ### DevOps & Infrastructure
 
 -   **Docker** - Containerization for consistent development and deployment environments
--   **Docker Compose** - Multi-container orchestration
 
 ## 🚀 Features
 
@@ -125,14 +124,12 @@ npm run dev
 Through this project, I've gained experience with:
 
 1. **State Management** - Comparing Zustand's simplicity versus Redux complexity
-2. **API Integration** - RESTful API design and client-side data fetching
-3. **Database Design** - Prisma schema modeling and migrations
-4. **Component Architecture** - Building reusable, maintainable React components
-5. **Theme Implementation** - MUI theming system for dark/light modes
-6. **TypeScript Patterns** - Type-safe component props and API contracts
-7. **Containerization** - Docker for reproducible development environments
-8. **Data Visualization** - Charting libraries for analytics
-9. **Form Management** - Controlled components and validation
+2. **Database Design** - Prisma schema modeling and migrations
+3. **Theme Implementation** - MUI theming system for dark/light modes
+4. **TypeScript Patterns** - Type-safe component props and API contracts
+5. **Containerization** - Docker for reproducible development environments
+6. **Data Visualization** - Charting libraries for analytics
+7. **Form Management** - Controlled components and validation
 
 ## 📝 API Endpoints
 
@@ -141,15 +138,6 @@ Through this project, I've gained experience with:
 -   `GET /api/transactions` - Fetch all transactions
 -   `POST /api/transactions` - Create new transaction
 -   `DELETE /api/transactions/:id` - Delete transaction
-
-## 🚀 Future Learning Goals
-
--   [ ] Implement authentication and authorization
--   [ ] Add transaction categories and budgeting features
--   [ ] Explore testing frameworks (Jest, React Testing Library)
--   [ ] Implement CI/CD pipelines
--   [ ] Deploy to cloud platforms
--   [ ] Add PWA capabilities
 
 ## 📜 License
 
