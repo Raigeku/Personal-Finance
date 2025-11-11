@@ -1,7 +1,14 @@
 .container {
 	min-height: 100vh;
-	padding-top: 48px;
-	padding-bottom: 48px;
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+
+@media (min-width: 600px) {
+	.container {
+		padding-top: 48px;
+		padding-bottom: 48px;
+	}
 }
 
 .container.light {
@@ -15,9 +22,17 @@
 .title {
 	margin-bottom: 16px;
 	font-weight: 600;
+	font-size: 1.5rem;
+}
+
+@media (min-width: 600px) {
+	.title {
+		font-size: 2.125rem;
+	}
 }
 
 .content {
 	padding: 16px;
 	border-radius: 16px;
+	overflow-x: auto;
 }

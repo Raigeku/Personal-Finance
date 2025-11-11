@@ -6,7 +6,7 @@ import styles from './components/styles/App.module.css';
 
 import AppHeader from './components/AppHeader';
 import FiltersBar from './components/FiltersBar';
-import TransactionList from './components/TransactionList';
+import TransactionListResponsive from './components/TransactionListResponsive';
 import AddTransactionModal from './components/AddTransactionModal';
 import useThemeStore from './stores/themeStore';
 import IncomeExpenseChart from './components/IncomeExpenseChart';
@@ -58,7 +58,7 @@ const App: React.FC = () => {
 					<IncomeExpenseChart />
 
 					<Paper className={styles.content} elevation={3}>
-						<TransactionList />
+						<TransactionListResponsive />
 					</Paper>
 				</Container>
 			</Box>

@@ -74,28 +74,36 @@ const TransactionForm: React.FC<TransactionFormProps> = ({ onSuccess }) => {
 		<form onSubmit={handleSubmit}>
 			<Box className={styles.form}>
 				<TextField
+					fullWidth
 					label="Description"
 					value={values.description}
 					onChange={handleChange('description')}
 					error={!!errors.description}
 					helperText={errors.description}
+					size="medium"
 				/>
 				<TextField
+					fullWidth
 					label="Amount"
 					type="number"
 					value={values.amount}
 					onChange={handleChange('amount')}
 					error={!!errors.amount}
 					helperText={errors.amount}
+					size="medium"
+					inputProps={{ step: '0.01' }}
 				/>
 				<TextField
+					fullWidth
 					label="Category"
 					value={values.category}
 					onChange={handleChange('category')}
 					error={!!errors.category}
 					helperText={errors.category}
+					size="medium"
 				/>
 				<TextField
+					fullWidth
 					label="Date"
 					type="date"
 					value={values.date}
@@ -106,24 +114,29 @@ const TransactionForm: React.FC<TransactionFormProps> = ({ onSuccess }) => {
 					className={
 						isDark ? styles.datePickerDark : styles.datePicker
 					}
+					size="medium"
 				/>
 				<TextField
+					fullWidth
 					select
 					label="Type"
 					value={values.type}
 					onChange={handleChange('type')}
 					error={!!errors.type}
 					helperText={errors.type}
+					size="medium"
 				>
 					<MenuItem value="income">Income</MenuItem>
 					<MenuItem value="expense">Expense</MenuItem>
 				</TextField>
 
 				<Button
+					fullWidth
 					type="submit"
 					variant="contained"
 					color="primary"
 					disabled={mutation.status === 'pending'}
+					sx={{ py: 1.5, fontSize: '1rem' }}
 				>
 					{mutation.status === 'pending'
 						? 'Saving...'

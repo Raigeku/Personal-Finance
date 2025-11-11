@@ -7,9 +7,12 @@ import {
 	Box,
 	IconButton,
 	Tooltip,
+	useMediaQuery,
+	useTheme,
 } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import AddIcon from '@mui/icons-material/Add';
 import useThemeStore from '../stores/themeStore';
 
 interface AppHeaderProps {
@@ -18,6 +21,9 @@ interface AppHeaderProps {
 
 const AppHeader: React.FC<AppHeaderProps> = ({ onAddClick }) => {
 	const { mode, toggleMode } = useThemeStore();
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
 	return (
 		<AppBar
 			position="static"
@@ -26,21 +32,33 @@ const AppHeader: React.FC<AppHeaderProps> = ({ onAddClick }) => {
 				background: 'linear-gradient(90deg,#1976d2 0%,#60a5fa 100%)',
 			}}
 		>
-			<Toolbar>
+			<Toolbar sx={{ gap: isMobile ? 1 : 2 }}>
 				<Box
 					sx={{
 						display: 'flex',
 						alignItems: 'center',
-						gap: 2,
+						gap: isMobile ? 1 : 2,
 						flexGrow: 1,
+						minWidth: 0,
 					}}
 				>
-					<Typography variant="h6" component="div">
-						💰 Personal Finance Tracker
+					<Typography
+						variant={isMobile ? 'body1' : 'h6'}
+						component="div"
+						sx={{
+							fontWeight: 600,
+							overflow: 'hidden',
+							textOverflow: 'ellipsis',
+							whiteSpace: 'nowrap',
+						}}
+					>
+						💰 Finance
 					</Typography>
-					<Typography variant="caption" sx={{ opacity: 0.85 }}>
-						Track income and expenses effortlessly
-					</Typography>
+					{!isMobile && (
+						<Typography variant="caption" sx={{ opacity: 0.85 }}>
+							Track income and expenses effortlessly
+						</Typography>
+					)}
 				</Box>
 				<Tooltip
 					title={
@@ -49,11 +67,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ onAddClick }) => {
 							: 'Switch to dark mode'
 					}
 				>
-					<IconButton
-						color="inherit"
-						onClick={toggleMode}
-						sx={{ mr: 1 }}
-					>
+					<IconButton color="inherit" onClick={toggleMode}>
 						{mode === 'dark' ? (
 							<Brightness7Icon />
 						) : (
@@ -62,14 +76,26 @@ const AppHeader: React.FC<AppHeaderProps> = ({ onAddClick }) => {
 					</IconButton>
 				</Tooltip>
 
-				<Button
-					color="inherit"
-					onClick={onAddClick}
-					variant="outlined"
-					sx={{ borderColor: 'rgba(255,255,255,0.2)' }}
-				>
-					Add Transaction
-				</Button>
+				{isMobile ? (
+					<Tooltip title="Add Transaction">
+						<IconButton
+							color="inherit"
+							onClick={onAddClick}
+							size="large"
+						>
+							<AddIcon />
+						</IconButton>
+					</Tooltip>
+				) : (
+					<Button
+						color="inherit"
+						onClick={onAddClick}
+						variant="outlined"
+						sx={{ borderColor: 'rgba(255,255,255,0.2)' }}
+					>
+						Add Transaction
+					</Button>
+				)}
 			</Toolbar>
 		</AppBar>
 	);
